@@ -7,10 +7,10 @@ function start(route, handle) {
         var path = url.parse(request.url).pathname;
         console.log('Request path: ' + path);
 
-        route(handle, path);
+        var cnt = route(handle, path);
 
         response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.write('Hello World');
+        response.write(cnt);
         response.end();
     }
 
