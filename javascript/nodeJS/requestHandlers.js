@@ -1,5 +1,8 @@
+var helper = require('./helper');
+
 function start() {
     console.log('Request handler start called.');
+    helper.sleep(1000 * 5);
     return 'Hello, I am start.';
 }
 
