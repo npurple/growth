@@ -1,9 +1,14 @@
 var http = require('http');
+var url = require('url');
 var port = 8124;
 
-function start() {
+function start(route) {
     function onRequest(request, response) {
-        console.log('Request received.');
+        var path = url.parse(request.url).pathname;
+        console.log('Request path: ' + path);
+
+        route(path);
+
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.write('Hello World');
         response.end();
