@@ -2,11 +2,12 @@ var exec = require('child_process').exec;
 
 function start(response) {
     console.log('Request handler start called.');
-    cmd = 'python /Users/miaozheng/growth/javascript/nodeJS/sleep.py';
+    cmd = 'python ./sleep.py';
     exec(cmd, function(error, stdout, stderr) {
        response.writeHead(200, {'Content-Type': 'text/plain'}); 
        response.write(stdout); 
        response.end(); 
+    console.log('Sleep over.');
     });
 }
 
